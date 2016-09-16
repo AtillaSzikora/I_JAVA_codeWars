@@ -4,21 +4,17 @@ Descending order means that you take the highest digit and place the next highes
 Examples: Input: 145263 Output: 654321, Input: 1254859723 Output: 9875543221
 */
 
-import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 
 class DescendingOrder {
     static int sortDesc(final int num) {
-        String stringNum = Integer.toString(num);
-        ArrayList<Integer> resultList = new ArrayList<>();
+        String[] resultArray = String.valueOf(num).split("");
 
-        for (int i = 0; i < stringNum.length(); i++) {
-            resultList.add(Integer.parseInt(String.valueOf(stringNum.charAt(i))));
-        }
-        Collections.sort(resultList);
-        Collections.reverse(resultList);
-        stringNum = resultList.toString().replaceAll("\\[|\\]|,| ", "");
+        Arrays.sort(resultArray);
+        Collections.reverse(Arrays.asList(resultArray));
+        String resultString = Arrays.toString(resultArray).replaceAll("\\[|\\]|,| ", "");
 
-        return Integer.parseInt(stringNum);
+        return Integer.parseInt(resultString);
     }
 }
