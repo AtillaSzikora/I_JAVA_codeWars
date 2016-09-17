@@ -23,6 +23,7 @@ class Diamond {
                 starsInRow -= 2;
             }
         }
+        if (starsInMiddle % 2 != 1) { return null; }
         return resultString.toString();
     }
 }
