@@ -1,12 +1,13 @@
 import java.util.Arrays;
 
 class Diamond {
-    static String print(int width) {
+    static String print(int starsInMiddle) {
         StringBuilder resultString = new StringBuilder();
-        int starsInRow = 1, spacesInRow = width / 2;
+        int spacesInRow = starsInMiddle / 2;
+        int starsInRow = 1;
         char[] array;
 
-        for (int cycles = 1; cycles < width + 1; cycles++) {
+        for (int cycles = 1; cycles <= starsInMiddle; cycles++) {
             array = new char[spacesInRow];
             Arrays.fill(array, ' ');
             resultString.append(array);
@@ -14,8 +15,13 @@ class Diamond {
             Arrays.fill(array, '*');
             resultString.append(array).append('\n');
 
-            if (cycles < width / 2 + 1) { starsInRow += 2; spacesInRow--; }
-            if (cycles >= width / 2 + 1) { starsInRow -= 2; spacesInRow++; }
+            if (cycles <= starsInMiddle / 2) {
+                spacesInRow--;
+                starsInRow += 2;
+            } else {
+                spacesInRow++;
+                starsInRow -= 2;
+            }
         }
         return resultString.toString();
     }
