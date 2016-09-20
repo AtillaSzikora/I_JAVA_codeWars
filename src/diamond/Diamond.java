@@ -1,3 +1,5 @@
+package diamond;
+
 import java.util.Arrays;
 
 class Diamond {

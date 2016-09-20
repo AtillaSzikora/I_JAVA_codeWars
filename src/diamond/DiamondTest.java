@@ -1,4 +1,4 @@
-/*
+package diamond;/*
 You need to a string that when printed, displays a diamond shape on the screen using asterisk ("*") characters.
 Please see provided test cases for exact output format.
 The shape that will be returned from print method resembles a diamond, where the number provided as input

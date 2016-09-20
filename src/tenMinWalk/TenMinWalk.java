@@ -1,3 +1,5 @@
+package tenMinWalk;
+
 class TenMinWalk {
     static boolean isValid(char[] walk) {
         int blockCounter = 1;

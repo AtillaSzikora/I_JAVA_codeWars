@@ -1,4 +1,6 @@
-class Kata {
+package findEvenIndex;
+
+class FindEvenIndex {
     static int findEvenIndex(int[] arr) {
         for (int i = 1; i < arr.length - 1; i++) {
             int left = 0, right = 0;
