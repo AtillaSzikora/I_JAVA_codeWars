@@ -29,28 +29,18 @@ public class ParsePersons {
 
     private static ArrayList<Person> csvToPersonList() {
         Scanner scanner = null;
-        int numOfColsInFile = 0;
         File file = new File("src\\person\\persons.csv");
-        String[] nextLineArray;
-        Person person;
+        String currentLineOfFile;
         ArrayList<Person> resultList = new ArrayList<>();
         try {
             scanner = new Scanner(file);
-            numOfColsInFile = ",".split(scanner.nextLine()).length;
         } catch (Exception e) {
             e.printStackTrace();
         }
-        while (scanner != null && scanner.hasNextLine()) {
-            nextLineArray = scanner.nextLine().split(",");
-            person = new Person();
-            person.setName(nextLineArray[0]);
-            person.setEmail(nextLineArray[1]);
-            person.setSkill(nextLineArray[2].toLowerCase());
-            person.setSkillDescription(nextLineArray[3]);
-            person.setSkillRate(Integer.parseInt(nextLineArray[4]));
-            if (nextLineArray.length == numOfColsInFile) {
-                person.setSalary(Integer.parseInt(nextLineArray[5]));
-            }
+        String skipFirstLineOfFile = scanner.nextLine();
+        while (scanner.hasNextLine()) {
+            currentLineOfFile = scanner.nextLine();
+            Person person = Person.parse(currentLineOfFile);
             resultList.add(person);
         }
         scanner.close();

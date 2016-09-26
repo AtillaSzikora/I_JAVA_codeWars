@@ -46,6 +46,20 @@ class Person {
     void setSalary(int salary) {
         this.salary = salary;
     }
+    
+    static Person parse(String lineOfFile) {
+        Person person = new Person();
+        String[] lineOfFileArray = lineOfFile.split(",");
+        person.setName(lineOfFileArray[0]);
+        person.setEmail(lineOfFileArray[1]);
+        person.setSkill(lineOfFileArray[2].toLowerCase());
+        person.setSkillDescription(lineOfFileArray[3]);
+        person.setSkillRate(Integer.parseInt(lineOfFileArray[4]));
+        if (lineOfFileArray.length == 6) {
+            person.setSalary(Integer.parseInt(lineOfFileArray[5]));
+        }
+        return person;
+    }
 
     @Override
     public String toString() {
