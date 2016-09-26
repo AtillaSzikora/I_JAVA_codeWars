@@ -1,4 +1,4 @@
-package person;
+package skilledPersonFinder;
 
 class Person {
     private String name;
@@ -8,42 +8,27 @@ class Person {
     private int skillRate;
     private int salary;
 
-    Person() {}
+    private Person() {}
 
-    String getName() {
-        return name;
-    }
-    void setName(String name) {
+    private void setName(String name) {
         this.name = name;
     }
-    String getEmail() {
-        return email;
-    }
-    void setEmail(String email) {
+    private void setEmail(String email) {
         this.email = email;
     }
     String getSkill() {
         return skill;
     }
-    void setSkill(String skill) {
+    private void setSkill(String skill) {
         this.skill = skill;
     }
-    String getSkillDescription() {
-        return skillDescription;
-    }
-    void setSkillDescription(String skillDescription) {
+    private void setSkillDescription(String skillDescription) {
         this.skillDescription = skillDescription;
     }
-    int getSkillRate() {
-        return skillRate;
-    }
-    void setSkillRate(int skillRate) {
+    private void setSkillRate(int skillRate) {
         this.skillRate = skillRate;
     }
-    int getSalary() {
-        return salary;
-    }
-    void setSalary(int salary) {
+    private void setSalary(int salary) {
         this.salary = salary;
     }
     
@@ -55,7 +40,7 @@ class Person {
         person.setSkill(lineOfFileArray[2].toLowerCase());
         person.setSkillDescription(lineOfFileArray[3]);
         person.setSkillRate(Integer.parseInt(lineOfFileArray[4]));
-        if (lineOfFileArray.length == 6) {
+        if (lineOfFileArray.length == PersonFinder.numOfColsInFile) {
             person.setSalary(Integer.parseInt(lineOfFileArray[5]));
         }
         return person;
@@ -67,8 +52,8 @@ class Person {
                 "name='" + name + '\'' +
                 ", email='" + email + '\'' +
                 ", skill=" + skill +
-                ", getSkillDescription='" + skillDescription + '\'' +
-                ", getSkillRate=" + skillRate +
+                ", skillDescription='" + skillDescription + '\'' +
+                ", skillRate=" + skillRate +
                 ", salary=" + salary +
                 '}';
     }
