@@ -1,6 +1,6 @@
 package patternFinder;
 
-public class BestPatternFinder implements PatternFinder {
+class BestPatternFinder implements PatternFinder {
     @Override
     public int countPattern(int[] numbers, int... pattern) {
         int count = 0;
