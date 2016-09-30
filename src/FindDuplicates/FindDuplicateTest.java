@@ -1,3 +1,5 @@
+// Return an array of numbers which occur more than once in the input array. In the same order as they occur.
+
 package FindDuplicates;
 
 import org.junit.Test;
