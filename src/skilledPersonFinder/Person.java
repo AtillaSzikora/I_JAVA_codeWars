@@ -1,6 +1,6 @@
 package skilledPersonFinder;
 
-class Person {
+class Person implements Comparable{
     private String name;
     private String email;
     private String skill;
@@ -31,7 +31,7 @@ class Person {
     private void setSalary(int salary) {
         this.salary = salary;
     }
-    
+
     static Person parse(String lineOfFile) {
         Person person = new Person();
         String[] lineOfFileArray = lineOfFile.split(",");
@@ -44,6 +44,24 @@ class Person {
             person.setSalary(Integer.parseInt(lineOfFileArray[5]));
         }
         return person;
+    }
+
+    @Override
+    public int compareTo(Object o) {
+        Person person = (Person) o;
+        return name.compareTo(person.name);
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (o == null) { return false; }
+        Person person = (Person) o;
+        return name.equals(person.name);
+    }
+
+    @Override
+    public int hashCode() {
+        return name.hashCode();
     }
 
     @Override
